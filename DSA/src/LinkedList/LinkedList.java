@@ -89,7 +89,7 @@ public class LinkedList {
     }
 
     public Node get(int index) {
-        if (length < 0 || index > length) {
+        if (length < 0 || index >= length) {
             System.out.println("Index out of bounds");
             return null;
         }
