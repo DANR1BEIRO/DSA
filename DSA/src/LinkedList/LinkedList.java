@@ -127,6 +127,20 @@ public class LinkedList {
         return true;
     }
 
+    public Node remove(int index) {
+        if (index < 0 || index >= length) return null;
+        if (length == 0) return removeFromFront();
+        if(index == length - 1) return removeFromEnd();
+
+        Node prev = get(index - 1);
+        Node current = prev.next;
+
+        prev.next = current.next;
+        current.next = null;
+        length--;
+        return current;
+    }
+
     public void getHead() {
         System.out.println("Head: " + this.head.value);
     }
