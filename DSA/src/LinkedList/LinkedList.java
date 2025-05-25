@@ -97,8 +97,34 @@ public class LinkedList {
         for (int i = 0; i < index; i++) {
             temp = temp.next;
         }
-        System.out.println("The element at the index of " + index + " is: " + temp.value);
         return temp;
+    }
+
+    public boolean set(int index, int value) {
+        Node temp = get(index);
+        if (temp != null) {
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean insert(int index, int value) {
+        if (index < 0 || index > length) return false;
+        if (index == 0) {
+            addToFront(value);
+            return true;                                // 1, 3
+        }                                               // 0  1
+        if (index == length) {
+            addToEnd(value);
+            return true;
+        }
+        Node newNode = new Node(value);
+        Node temp = get(index - 1);
+        newNode.next = temp.next;
+        temp.next = newNode;
+        length++;
+        return true;
     }
 
     public void getHead() {
@@ -113,7 +139,7 @@ public class LinkedList {
         System.out.println("Length: " + this.length);
     }
 
-    class Node {
+    public static class Node {
         int value;
         Node next;
 
