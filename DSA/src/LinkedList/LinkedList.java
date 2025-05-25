@@ -130,7 +130,7 @@ public class LinkedList {
     public Node remove(int index) {
         if (index < 0 || index >= length) return null;
         if (length == 0) return removeFromFront();
-        if(index == length - 1) return removeFromEnd();
+        if (index == length - 1) return removeFromEnd();
 
         Node prev = get(index - 1);
         Node current = prev.next;
@@ -139,6 +139,28 @@ public class LinkedList {
         current.next = null;
         length--;
         return current;
+    }
+
+    public void reverse() {
+        if (length < 2) {                    // No need to reverse if list has 0 or 1 elements
+            if (length == 0) {
+                System.out.println("Can't reverse an empty list");
+            }
+            return;
+        }
+        Node current = head;                 // Start from the head of the list
+        head = tail;                         // Swap head and tail references
+        tail = current;
+
+        Node previous = null;                // Create a Node before the current Node as null
+        Node next;                           // Temporary Node to hold next reference
+
+        for (int i = 0; i < length; i++) {   // Perform a for loop through the entire list(length)
+            next = current.next;             // Store next node before overwrite it
+            current.next = previous;         // Reverse the current node's pointer
+            previous = current;              // Move previous to current position
+            current = next;                  // Move current to next position
+        }
     }
 
     public void getHead() {
