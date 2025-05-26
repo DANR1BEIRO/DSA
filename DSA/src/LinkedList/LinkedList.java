@@ -13,6 +13,15 @@ public class LinkedList {
         length = 1;
     }
 
+    public static class Node {
+        int value;
+        Node next;
+
+        public Node(int value) {
+            this.value = value;
+        }
+    }
+
     public void printList() {
         Node temp = head;
         System.out.println("Current list:");
@@ -162,6 +171,19 @@ public class LinkedList {
         }
     }
 
+    public Node findMiddleNode() {
+        if (head == null) return null;
+
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
     public void getHead() {
         System.out.println("Head: " + this.head.value);
     }
@@ -172,14 +194,5 @@ public class LinkedList {
 
     public void getLength() {
         System.out.println("Length: " + this.length);
-    }
-
-    public static class Node {
-        int value;
-        Node next;
-
-        public Node(int value) {
-            this.value = value;
-        }
     }
 }
