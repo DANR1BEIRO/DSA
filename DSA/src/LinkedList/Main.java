@@ -7,12 +7,11 @@ public class Main {
         linkedList.prepend(2);
         linkedList.prepend(3);
         linkedList.prepend(4);
-        linkedList.printList();
-
+        linkedList.prepend(5);
+        linkedList.prepend(6);
         linkedList.reverse();
         linkedList.printList();
-        System.out.println(linkedList.findMiddleNode().value);
-        System.out.println(linkedList.hasLoop());
+        System.out.println(linkedList.findKthfromEnd(2).value);
 
     }
 }

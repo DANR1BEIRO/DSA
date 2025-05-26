@@ -200,6 +200,23 @@ public class LinkedList {
         return false;
     }
 
+    public Node findKthfromEnd(int k) {
+        if (head == null) return null;      // return null if the list is empty
+
+        Node slow = head;
+        Node fast = head;
+
+        for (int i = 0; i < k; i++) {       // Move fast k steps ahead to create a gap of k nodes between the pointers
+            if (fast == null) return null;  // if fast[k] is larger than the length of the list, return null
+            fast = fast.next;
+        }
+        while (fast != null) {            // Move both poniters forward together until fast reaches the end of the list
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;                      // At this point, slow points to the Kth node from the end
+    }
+
     public void getHead() {
         System.out.println("Head: " + this.head.value);
     }
