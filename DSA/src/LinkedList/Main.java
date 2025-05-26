@@ -12,6 +12,7 @@ public class Main {
         linkedList.reverse();
         linkedList.printList();
         System.out.println(linkedList.findMiddleNode().value);
+        System.out.println(linkedList.hasLoop());
 
     }
 }

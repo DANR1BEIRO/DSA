@@ -184,6 +184,22 @@ public class LinkedList {
         return slow;
     }
 
+    public boolean hasLoop() {
+        if (head == null) return false;
+
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void getHead() {
         System.out.println("Head: " + this.head.value);
     }
