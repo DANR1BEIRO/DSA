@@ -217,8 +217,20 @@ public class LinkedList {
         return slow;                      // At this point, slow points to the Kth node from the end
     }
 
+    public void removeDuplicate() {
+        for (Node current = head; current != null; current = current.next) {
+            for (Node runner = current; runner != null; ) {
+                if (runner.next.value == current.value) {
+                    runner.next = runner.next.next;
+                } else {
+                    runner = runner.next;
+                }
+            }
+        }
+    }
+
     public void getHead() {
-        System.out.println("Head: " + this.head.value);
+        System.out.println("Head: " + this.head.value); 
     }
 
     public void getTail() {
