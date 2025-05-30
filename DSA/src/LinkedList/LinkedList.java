@@ -230,11 +230,19 @@ public class LinkedList {
     }
 
     public void getHead() {
-        System.out.println("Head: " + this.head.value); 
+        if (head != null) {
+            System.out.println("Head: " + this.head.value);
+        } else {
+            System.out.println("Head: null (list is empty)");
+        }
     }
 
     public void getTail() {
-        System.out.println("Tail: " + this.tail.value);
+        if (tail != null) {
+            System.out.println("Tail: " + this.tail.value);
+        } else {
+            System.out.println("Tail: null (list is empty)");
+        }
     }
 
     public void getLength() {
