@@ -23,19 +23,20 @@ public class LinkedList {
     }
 
     public void printList() {
-        Node temp = head;
-        System.out.println("Current list:");
-        if (temp == null) {
+        if (head == null) {
             System.out.println("The list is empty.");
+            return;
         }
-        while (temp != null) {
-            System.out.print(temp.value);
-            if (temp.next != null) {
+        System.out.println("Current list:");
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.value);
+            if (current.next != null) {
                 System.out.print(" -> ");
             } else {
-                System.out.println(".");
+                System.out.print(".");
             }
-            temp = temp.next;
+            current = current.next;
         }
     }
 

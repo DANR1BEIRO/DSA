@@ -17,6 +17,8 @@ public class Main {
         linkedList.removeDuplicate();
         linkedList.printList();
 
+        LinkedList.Node node = linkedList.removeFirst();
+
 
     }
 }
