@@ -1,6 +1,9 @@
-package Array;
+package leetcode;
 
-public class FrequencyMap {
+/**
+ * Given two strings s and t, return true if t is an of s, and false otherwise.
+ */
+public class ValidAnagram {
 
     public static boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) return false;
